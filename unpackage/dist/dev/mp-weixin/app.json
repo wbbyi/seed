@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/identify/index",
+    "pages/identify/result"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "种子识别系统",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#f8f8f8"
+  },
+  "usingComponents": {}
+}

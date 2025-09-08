@@ -1,0 +1,22 @@
+{
+  "pages": [
+    {
+      "path": "pages/identify/index",
+      "style": {
+        "navigationBarTitleText": "种子识别"
+      }
+    },
+    {
+      "path": "pages/identify/result",
+      "style": {
+        "navigationBarTitleText": "识别结果"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "种子识别系统",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#f8f8f8"
+  }
+}
