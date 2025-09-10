@@ -24,16 +24,20 @@
 
 <script>
 export default {
-  data() {
-    return {
-      result: {}
-    };
-  },
-  onLoad(options) {
-    if (options.data) {
-      this.result = JSON.parse(decodeURIComponent(options.data));
-    }
-  },
+   data() {
+      return {
+        result: {},
+        image: ''
+      };
+    },
+    onLoad(options) {
+      if (options.data) {
+        this.result = JSON.parse(decodeURIComponent(options.data));
+      }
+      if (options.image) {
+        this.image = decodeURIComponent(options.image);
+      }
+    },
   methods: {
     handleBack() {
       uni.navigateBack();

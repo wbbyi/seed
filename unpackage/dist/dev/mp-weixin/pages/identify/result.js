@@ -3,12 +3,16 @@ const common_vendor = require("../../common/vendor.js");
 const _sfc_main = {
   data() {
     return {
-      result: {}
+      result: {},
+      image: ""
     };
   },
   onLoad(options) {
     if (options.data) {
       this.result = JSON.parse(decodeURIComponent(options.data));
+    }
+    if (options.image) {
+      this.image = decodeURIComponent(options.image);
     }
   },
   methods: {

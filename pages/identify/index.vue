@@ -28,6 +28,7 @@
 <script>
 import { chooseAndUpload } from '@/utils/upload.js';
 import uniIcons from '@dcloudio/uni-ui/lib/uni-icons/uni-icons.vue';
+import { saveHistory } from '@/utils/historyApi.js';
 
 export default {
   components: { uniIcons },
@@ -57,8 +58,15 @@ export default {
       try {
         const res = await plantApi.identifyPlant(this.imagePath);
         const result = JSON.parse(res.data);
+        // 保存历史记录
+        await saveHistory({
+          id: Date.now(),
+          image: this.imagePath,
+          result,
+          time: new Date().toLocaleString()
+        });
         uni.navigateTo({
-          url: '/pages/identify/result?data=' + encodeURIComponent(JSON.stringify(result))
+          url: '/pages/identify/result?data=' + encodeURIComponent(JSON.stringify(result)) + '&image=' + encodeURIComponent(this.imagePath)
         });
       } catch (err) {
         uni.showToast({

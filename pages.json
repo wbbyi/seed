@@ -7,12 +7,38 @@
       }
     },
     {
+      "path": "pages/identify/history",
+      "style": {
+        "navigationBarTitleText": "历史记录"
+      }
+    },
+    {
       "path": "pages/identify/result",
       "style": {
         "navigationBarTitleText": "识别结果"
       }
     }
   ],
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#009688",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/identify/index",
+        "iconPath": "static/tab-home.png",
+        "selectedIconPath": "static/tab-home.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/identify/history",
+        "iconPath": "static/tab-history.png",
+        "selectedIconPath": "static/tab-history.png",
+        "text": "历史"
+      }
+    ]
+  },
   "globalStyle": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "种子识别系统",

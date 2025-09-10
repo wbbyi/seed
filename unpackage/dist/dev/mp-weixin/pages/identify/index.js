@@ -1,6 +1,7 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
 const utils_upload = require("../../utils/upload.js");
+const utils_historyApi = require("../../utils/historyApi.js");
 const uniIcons = () => "../../node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons.js";
 const _sfc_main = {
   components: { uniIcons },
@@ -31,15 +32,21 @@ const _sfc_main = {
       try {
         const res = await plantApi.identifyPlant(this.imagePath);
         const result = JSON.parse(res.data);
+        await utils_historyApi.saveHistory({
+          id: Date.now(),
+          image: this.imagePath,
+          result,
+          time: (/* @__PURE__ */ new Date()).toLocaleString()
+        });
         common_vendor.index.navigateTo({
-          url: "/pages/identify/result?data=" + encodeURIComponent(JSON.stringify(result))
+          url: "/pages/identify/result?data=" + encodeURIComponent(JSON.stringify(result)) + "&image=" + encodeURIComponent(this.imagePath)
         });
       } catch (err) {
         common_vendor.index.showToast({
           title: "识别失败",
           icon: "none"
         });
-        common_vendor.index.__f__("error", "at pages/identify/index.vue:68", err);
+        common_vendor.index.__f__("error", "at pages/identify/index.vue:76", err);
       } finally {
         this.loading = false;
       }

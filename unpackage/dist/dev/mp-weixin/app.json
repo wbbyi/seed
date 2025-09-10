@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/identify/index",
+    "pages/identify/history",
     "pages/identify/result"
   ],
   "window": {
@@ -8,6 +9,26 @@
     "navigationBarTitleText": "种子识别系统",
     "navigationBarBackgroundColor": "#fff",
     "backgroundColor": "#f8f8f8"
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#009688",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/identify/index",
+        "iconPath": "static/tab-home.png",
+        "selectedIconPath": "static/tab-home.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/identify/history",
+        "iconPath": "static/tab-history.png",
+        "selectedIconPath": "static/tab-history.png",
+        "text": "历史"
+      }
+    ]
   },
   "usingComponents": {}
 }
