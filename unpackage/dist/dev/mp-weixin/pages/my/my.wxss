@@ -1,0 +1,128 @@
+
+.myPhoto.data-v-2f1ef635 {
+		display: flex;
+}
+.myText.data-v-2f1ef635 {
+		display: flex;
+		font-size: 78%;
+}
+.edit.data-v-2f1ef635 {
+		display: flex;
+		flex-direction: column-reverse;
+		width: 75rpx;
+		height: 80rpx;
+}
+.editImg.data-v-2f1ef635 {
+		display: flex;
+		border: none;
+		width: 100rpx;
+		height: 100rpx;
+}
+.float-btn.data-v-2f1ef635 {
+		position: fixed;
+		bottom: 30rpx;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100rpx;
+		height: 100rpx;
+		border-radius: 50%;
+		background: #007AFF;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		z-index: 999;
+}
+.float-btn cover-image.data-v-2f1ef635 {
+		width: 60rpx;
+		height: 60rpx;
+}
+.mask.data-v-2f1ef635 {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		z-index: 100;
+}
+.bottom-popup.data-v-2f1ef635 {
+		display: flex;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 25%;
+		background-color: #fff;
+		border-top-left-radius: 20px;
+		border-top-right-radius: 20px;
+		z-index: 101;
+		padding: 20px;
+		flex-direction: column;
+		padding: 40rpx 20rpx;
+		align-items: center;
+		/* 水平居中 */
+}
+.camera-text.data-v-2f1ef635 {
+		text-align: center;
+		font-size: 32rpx;
+		font-weight: 600;
+}
+.btn-camera.data-v-2f1ef635 {
+		flex: 1;
+		/* 占据剩余空间 */
+		display: flex;
+		justify-content: center;
+		/* 横向居中分布 */
+		align-items: center;
+		/* 垂直居中 */
+		gap: 60rpx;
+		width: 100%;
+}
+.camera.data-v-2f1ef635 {
+		width: 130rpx;
+		height: 130rpx;
+		border-radius: 50%;
+		background-color: #f7f7f7;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: none;
+		padding: 0;
+}
+.camera image.data-v-2f1ef635 {
+		width: 60rpx;
+		height: 60rpx;
+}
+.myButton.data-v-2f1ef635 {
+		display: flex;
+		background-color: white;
+		border: none;
+		justify-content: space-between;
+		align-items: center;
+}
+.btn-img.data-v-2f1ef635 {
+		width: 40rpx;
+		height: 40rpx;
+}
+.btn-text.data-v-2f1ef635 {
+		text-align: left;
+		font-size: 32rpx;
+}
+.bracket.data-v-2f1ef635 {
+		width: 40rpx;
+		height: 40rpx;
+}
+.btn-item1.data-v-2f1ef635{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 30%;
+		height: 100%;
+}
+.btn-item.data-v-2f1ef635{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 20%;
+		height: 100%;
+}

@@ -1,0 +1,21 @@
+<view class="tab-bar">
+  <!-- 左侧 tab -->
+  <view class="tab-item" bindtap="switchTab" data-index="0">
+    <image class="tab-icon" src="{{selected===0?'/static/homeBlue.png':'/static/homeBlank.png'}}"/>
+    <text class="tab-text" style="color: {{selected===0?'#000':'#999'}}">首页</text>
+  </view>
+  
+  <view class="tab-item">
+	  <!-- 中间悬浮按钮 -->
+	  <view class="center-btn" bindtap="handleCenterTap">
+	    <image src="/static/cameraWhite.png" class="center-icon"/>
+	  </view>
+	  <text class="tab-text-chuan" style="color: #000">上传</text>
+  </view>
+
+  <!-- 右侧 tab -->
+  <view class="tab-item" bindtap="switchTab" data-index="1">
+    <image class="tab-icon" src="{{selected===1?'/static/myBlue.png':'/static/myBlank.png'}}"/>
+    <text class="tab-text" style="color: {{selected===1?'#000':'#999'}}">我的</text>
+  </view>
+</view>

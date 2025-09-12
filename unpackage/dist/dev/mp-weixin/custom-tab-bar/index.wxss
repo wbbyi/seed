@@ -1,0 +1,58 @@
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 110rpx;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid #e5e5e5;
+  z-index: 10;
+}
+
+.tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab-icon {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.tab-text {
+  font-size: 20rpx;
+  margin-top: 2rpx;
+}
+
+.center-btn {
+  position: fixed; /* 改为 fixed */
+  bottom: 60rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90rpx;
+  height: 90rpx;
+  background-color: #007aff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* 确保最高 */
+}
+
+
+.center-icon {
+  width: 40rpx;
+  height: 40rpx;
+  pointer-events: none; /* 让点击事件冒泡到父元素 */
+}
+
+.tab-text-chuan{
+	font-size: 30rpx;
+	margin-top: 50rpx;
+}
