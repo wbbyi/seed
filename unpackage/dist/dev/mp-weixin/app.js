@@ -30,6 +30,7 @@ function createApp() {
   app.component("uni-swiper-dot", UniSwiperDot);
   app.component("uni-popup", UniPopup);
   app.component("uni-transition", uniTransition);
+  app.component("lottie", common_vendor.lottie);
   return {
     app
   };

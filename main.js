@@ -3,6 +3,7 @@ import UniIcons from "@dcloudio/uni-ui/lib/uni-icons/uni-icons.vue"
 import UniSwiperDot from "@/uni_modules/uni-swiper-dot/components/uni-swiper-dot/uni-swiper-dot.vue"
 import UniPopup from '@/uni_modules/uni-popup/components/uni-popup/uni-popup.vue'
 import uniTransition from '@/uni_modules/uni-transition/components/uni-transition/uni-transition.vue'
+import Lottie from '@/node_modules/lottie-miniprogram'
 // #ifndef VUE3
 import Vue from 'vue'
 import './uni.promisify.adaptor'
@@ -22,6 +23,7 @@ export function createApp() {
   app.component("uni-swiper-dot", UniSwiperDot)
   app.component("uni-popup", UniPopup)
   app.component("uni-transition", uniTransition)
+  app.component("lottie", Lottie)
   return {
     app
   }

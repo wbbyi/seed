@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@dcloudio/uni-ui": "^1.5.11"
+    "@dcloudio/uni-ui": "^1.5.11",
+    "lottie-miniprogram": "^1.0.12"
   }
 }
