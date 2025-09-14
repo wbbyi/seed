@@ -1,32 +1,14 @@
 export default function methods() {
-	function chooseImage(type : number, num : number) : string[]{
-		const types : string[] = ['camera', 'album']
-		let imageSrc : string[] = []
-		if (type === 0) {
+	function chooseImage(type : number, num : number) : Promise<string[]> {
+		const types = ['camera', 'album']
+		return new Promise((resolve, reject) => {
 			uni.chooseImage({
 				count: num,
 				sourceType: [types[type]],
-				success: (res) => {
-					imageSrc[0] = res.tempFilePaths[0]
-				},
-				fail: (err) => {
-					console.log('选择图片失败', err)
-				}
+				success: (res) => resolve(res.tempFilePaths as string[]),
+				fail: (err) => reject(err)
 			})
-		}
-		else {
-			uni.chooseImage({
-				count: num,
-				sourceType: [types[type]],
-				success: (res) => {
-					imageSrc = res.tempFilePaths as string[];
-				},
-				fail: (err) => {
-					console.log('选择图片失败', err)
-				}
-			})
-		}
-		return imageSrc
+		})
 	}
 	return { chooseImage }
 }

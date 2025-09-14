@@ -46,8 +46,8 @@
 	<view class="modal-mask" v-if="showModel">
 		<view class="modal-box">
 			<view class="img-box" v-for="(i, index) in imgPaths" :key="index">
-				<image class="img-style" :src="i" mode="widthFix"></image>
-				<button class="img-delete" :plain="true">×</button>
+				<image class="img-style" :src="i" mode="aspectFit"></image>
+				<button class="img-delete" :plain="true" @click="deletePhoto(index)">×</button>
 			</view>
 		</view>
 		<view class="modal-button-box">
@@ -91,7 +91,7 @@
 	const maxNum = 2;
 	const imgPaths = ref<string[]>([])
 	let seedList = ref<CardMessage[]>([])
-	const date = new Date()
+	const date = "2025"
 	const seed1 = new CardMessage('/static/history.png', '1', '1', date)
 	seedList.value.push(seed1)
 
@@ -122,16 +122,19 @@
 		showPopup.value = false
 	}
 
-	const takePhoto = () => {
+	const takePhoto = async () => {
 		closePopup()
-		imgPaths.value = chooseImage(0, 1)
+		const paths = await chooseImage(1, maxNum)
+		imgPaths.value = paths
 		showModel.value = true
 	}
 
-	const chooseImages = () => {
+	const chooseImages = async () => {
 		closePopup()
-		imgPaths.value = chooseImage(0, maxNum)
+		const paths = await chooseImage(1, maxNum)
+		imgPaths.value = paths
 		showModel.value = true
+		console.log("imgPaths:", imgPaths.value)
 	}
 
 	const closemodalMask = () => {
@@ -164,6 +167,10 @@
 
 	const cancel = () => {
 		closemodalMask()
+	}
+
+	const deletePhoto = (index : number) => {
+		imgPaths.value.splice(index, 1)
 	}
 
 

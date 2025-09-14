@@ -6,7 +6,7 @@ export class CardMessage {
 	constructor(photo : string,
 		name : string,
 		text : string,
-		time : Date) {
+		time : string) {
 		this.photo = photo;
 		this.name = name;
 		this.text = text;

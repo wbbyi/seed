@@ -1696,6 +1696,7 @@ if (!Math) {
   (_easycom_uni_swiper_dot + _easycom_uni_card)();
 }
 const maxNum = 2;
+const date = "2025";
 const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
   __name: "home",
   setup(__props) {
@@ -1716,7 +1717,6 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     ]);
     const imgPaths = common_vendor.ref([]);
     let seedList = common_vendor.ref([]);
-    const date = /* @__PURE__ */ new Date();
     const seed1 = new pages_home_homeClass.CardMessage("/static/history.png", "1", "1", date);
     seedList.value.push(seed1);
     const dotsStyles = {
@@ -1736,15 +1736,18 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     const closePopup = () => {
       showPopup.value = false;
     };
-    const takePhoto = () => {
+    const takePhoto = async () => {
       closePopup();
-      imgPaths.value = chooseImage(0, 1);
+      const paths = await chooseImage(1, maxNum);
+      imgPaths.value = paths;
       showModel.value = true;
     };
-    const chooseImages = () => {
+    const chooseImages = async () => {
       closePopup();
-      imgPaths.value = chooseImage(0, maxNum);
+      const paths = await chooseImage(1, maxNum);
+      imgPaths.value = paths;
       showModel.value = true;
+      common_vendor.index.__f__("log", "at pages/home/home.vue:137", "imgPaths:", imgPaths.value);
     };
     const closemodalMask = () => {
       closePopup();
@@ -1760,20 +1763,23 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
           imgs: seedList
         },
         success: (res) => {
-          common_vendor.index.__f__("log", "at pages/home/home.vue:152", "请求成功", res.data);
+          common_vendor.index.__f__("log", "at pages/home/home.vue:155", "请求成功", res.data);
           showUploadCartoon.value = false;
         },
         fail: (err) => {
-          common_vendor.index.__f__("error", "at pages/home/home.vue:156", "请求失败", err);
+          common_vendor.index.__f__("error", "at pages/home/home.vue:159", "请求失败", err);
           showUploadCartoon.value = false;
         },
         complete: () => {
-          common_vendor.index.__f__("log", "at pages/home/home.vue:160", "请求完成");
+          common_vendor.index.__f__("log", "at pages/home/home.vue:163", "请求完成");
         }
       });
     };
     const cancel = () => {
       closemodalMask();
+    };
+    const deletePhoto = (index) => {
+      imgPaths.value.splice(index, 1);
     };
     common_vendor.onMounted(() => {
       const pages = getCurrentPages();
@@ -1858,7 +1864,8 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         q: common_vendor.f(imgPaths.value, (i, index, i0) => {
           return {
             a: i,
-            b: index
+            b: common_vendor.o(($event) => deletePhoto(index), index),
+            c: index
           };
         }),
         r: common_vendor.o(uploadImages),
