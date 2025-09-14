@@ -75,6 +75,9 @@
 
 
 	let { chooseImage } = methods()
+	const userInfo = uni.getStorageSync('userInfo')
+	const userName = ref(userInfo.nickName)
+	const userImage = ref(userInfo.avatarUrl)
 	const showUploadCartoon = ref(false)
 	const showModel = ref(false)
 	const current = ref(0);
@@ -143,6 +146,11 @@
 	}
 
 	const uploadImages = () => {
+		if(!userInfo){
+			uni.navigateTo({
+				url:"/pages/login/login"
+			})
+		}
 		closemodalMask()
 		showUploadCartoon.value = true
 		uni.request({
@@ -171,6 +179,10 @@
 
 	const deletePhoto = (index : number) => {
 		imgPaths.value.splice(index, 1)
+	}
+	
+	const toLogin = () => {
+		uni.redirectTo({url:"/pages/login/login"})
 	}
 
 
@@ -221,6 +233,7 @@
 			})
 			.exec()
 	})
+	
 </script>
 
 <style scoped>
@@ -446,4 +459,15 @@
 		font-size: 24rpx;
 		padding: 0;
 	}
+	
+	
+	
+	
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50rpx;
+}
+
 </style>

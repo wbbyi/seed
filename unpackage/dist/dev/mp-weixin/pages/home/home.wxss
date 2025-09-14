@@ -197,3 +197,10 @@
 		font-size: 24rpx;
 		padding: 0;
 }
+.container.data-v-07e72d3c {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50rpx;
+}
+

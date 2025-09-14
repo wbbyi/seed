@@ -1,0 +1,88 @@
+
+.logo-box.data-v-e4e4508d {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		width: 750rpx;
+		height: 650rpx;
+}
+.logo-image.data-v-e4e4508d {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 750rpx;
+		height: 60%;
+}
+.logo.data-v-e4e4508d {
+		width: 20%;
+		height: 20%;
+}
+.user-button-box.data-v-e4e4508d {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		flex-direction: column;
+		width: 750rpx;
+		height: 40%;
+}
+.user-button1.data-v-e4e4508d {
+		background-color: #00aa7f;
+		color: white;
+		width: 700rpx;
+		height: 90rpx;
+		margin: 0;
+		padding: 0;
+}
+.user-button2.data-v-e4e4508d {
+		width: 700rpx;
+		height: 90rpx;
+		margin: 0;
+		padding: 0;
+}
+.checkbox-wrapper.data-v-e4e4508d {
+		display: flex;
+		align-items: flex-start;
+		/* 让多行文字顶部对齐方框 */
+		cursor: pointer;
+}
+.checkbox-box.data-v-e4e4508d {
+		width: 30rpx;
+		height: 30rpx;
+		border: 2rpx solid #ccc;
+		border-radius: 50%;
+		/* 圆形方框 */
+		margin-right: 10rpx;
+		/* 方框与文字间距 */
+		position: relative;
+		flex-shrink: 0;
+		/* 保持方框不缩小 */
+}
+
+	/* 选中状态 */
+.checkbox-box.checked.data-v-e4e4508d {
+		background-color: #07c160;
+		border-color: #07c160;
+}
+.checkbox-box.checked.data-v-e4e4508d::after {
+		content: '✔';
+		color: #fff;
+		position: absolute;
+		top: 0;
+		left: 6rpx;
+		font-size: 24rpx;
+}
+.checkbox-text.data-v-e4e4508d {
+		flex: 1;
+		/* 文字占满剩余空间 */
+		line-height: 30rpx;
+		/* 可调整文字行高 */
+		word-break: break-word;
+		/* 自动换行 */
+		font-size: 60%;
+		color: dimgrey;
+}
+.tip.data-v-e4e4508d {
+		color: red;
+		font-size: 60%;
+}

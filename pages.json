@@ -1,5 +1,11 @@
 {
 	"pages": [{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
 			"path": "pages/home/home",
 			"style": {
 				"navigationBarTitleText": "首页"
@@ -10,7 +16,15 @@
 			"style": {
 				"navigationBarTitleText": "个人主页"
 			}
+		},
+		{
+			"path" : "pages/phoneLogin/phoneLogin",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
 		}
+
 	],
 	"tabBar": {
 		"color": "#000000",
@@ -31,7 +45,7 @@
 			}
 
 		],
-		"usingComponents" : {}
+		"usingComponents": {}
 	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

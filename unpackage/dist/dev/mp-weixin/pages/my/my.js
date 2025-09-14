@@ -50,7 +50,7 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
           title: "昵称",
           thumbnail: "https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/unicloudlogo.png"
         }),
-        b: common_assets._imports_0$1,
+        b: common_assets._imports_0$2,
         c: common_assets._imports_1,
         d: common_assets._imports_2,
         e: common_assets._imports_1,

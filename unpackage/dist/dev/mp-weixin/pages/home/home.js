@@ -1701,6 +1701,9 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
   __name: "home",
   setup(__props) {
     let { chooseImage } = pages_home_homeMethods.methods();
+    const userInfo = common_vendor.index.getStorageSync("userInfo");
+    common_vendor.ref(userInfo.nickName);
+    common_vendor.ref(userInfo.avatarUrl);
     const showUploadCartoon = common_vendor.ref(false);
     const showModel = common_vendor.ref(false);
     const current = common_vendor.ref(0);
@@ -1747,13 +1750,18 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
       const paths = await chooseImage(1, maxNum);
       imgPaths.value = paths;
       showModel.value = true;
-      common_vendor.index.__f__("log", "at pages/home/home.vue:137", "imgPaths:", imgPaths.value);
+      common_vendor.index.__f__("log", "at pages/home/home.vue:140", "imgPaths:", imgPaths.value);
     };
     const closemodalMask = () => {
       closePopup();
       showModel.value = false;
     };
     const uploadImages = () => {
+      if (!userInfo) {
+        common_vendor.index.navigateTo({
+          url: "/pages/login/login"
+        });
+      }
       closemodalMask();
       showUploadCartoon.value = true;
       common_vendor.index.request({
@@ -1763,15 +1771,15 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
           imgs: seedList
         },
         success: (res) => {
-          common_vendor.index.__f__("log", "at pages/home/home.vue:155", "请求成功", res.data);
+          common_vendor.index.__f__("log", "at pages/home/home.vue:163", "请求成功", res.data);
           showUploadCartoon.value = false;
         },
         fail: (err) => {
-          common_vendor.index.__f__("error", "at pages/home/home.vue:159", "请求失败", err);
+          common_vendor.index.__f__("error", "at pages/home/home.vue:167", "请求失败", err);
           showUploadCartoon.value = false;
         },
         complete: () => {
-          common_vendor.index.__f__("log", "at pages/home/home.vue:163", "请求完成");
+          common_vendor.index.__f__("log", "at pages/home/home.vue:171", "请求完成");
         }
       });
     };
@@ -1832,7 +1840,7 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         }),
         e: common_vendor.unref(seedList).length === 0
       }, common_vendor.unref(seedList).length === 0 ? {
-        f: common_assets._imports_0
+        f: common_assets._imports_0$1
       } : {
         g: common_vendor.f(common_vendor.unref(seedList), (i, k0, i0) => {
           return {

@@ -1,6 +1,8 @@
 Component({
 	data: {
 		selected: 0,
+		userName: '',
+		userImage: ''
 	},
 	lifetimes: {
 		attached() {
@@ -19,6 +21,43 @@ Component({
 		}
 	},
 	methods: {
+
+		// judgeUserMessage() {
+		// 	if (this.data.userImage === '' || this.data.userName === '') {
+		// 		wx.navigateTo({
+		// 			url: '/pages/login/login',
+		// 			success: () => {
+		// 				console.log('跳转成功')
+		// 				wx.getUserProfile({
+		// 					desc: '用于完善会员资料', // 必填，说明用途
+		// 					success: (res) => {
+		// 						console.log('用户信息：', res.userInfo)
+		// 						// res.userInfo 包含：
+		// 						// nickName：昵称
+		// 						// avatarUrl：头像
+		// 						// gender：性别
+		// 						// province：省
+		// 						// city：市
+		// 						// country：国家
+		// 						this.setData({
+		// 							userName: res.userInfo.nickName,
+		// 							userImage: res.userInfo.avatarUrl
+		// 						})
+
+		// 					},
+		// 					fail: (err) => {
+		// 						console.log('用户拒绝授权', err)
+		// 					}
+		// 				})
+		// 			},
+		// 			fail: () => {
+		// 				console.log('跳转失败')
+		// 			}
+		// 		})
+
+		// 	}
+		// },
+
 		switchTab(e) {
 			const index = Number(e.currentTarget.dataset.index)
 			// this.setData({
@@ -32,6 +71,7 @@ Component({
 			})
 		},
 		handleCenterTap() {
+
 			console.log('中间按钮点击了')
 
 			const pages = getCurrentPages()
@@ -41,13 +81,15 @@ Component({
 
 			// 调用页面注册的 openPopup 方法
 			page.openPopup?.()
-		}
+		},
 
 	},
 	onShow() {
 		// 确保selected状态与当前页面一致
 		this.setData({
-			selected: this.data.selected
+			selected: this.data.selected,
+			userImage: this.data.userImage,
+			userName: this.data.userName
 		})
 	}
 })
