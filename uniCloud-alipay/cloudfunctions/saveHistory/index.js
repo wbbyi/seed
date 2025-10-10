@@ -6,7 +6,7 @@ exports.main = async (event, context) => {
   const { action, collection, data, where } = event;
   const openid = context.OPENID; // 获取用户唯一id
 
-  const collectionRef = db.collection(collection);
+  const collectionRef = db.collection('demo-image');  //需更改数据表名
 
   switch (action) {
     case 'add':

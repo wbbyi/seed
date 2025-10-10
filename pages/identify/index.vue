@@ -29,6 +29,15 @@
     </button>
 
     <view class="loading" v-if="loading">识别中...</view>
+	
+	  <view class="container">
+	    <button @click="testAdd">添加数据</button>
+	    <button @click="testGet">获取数据</button>
+	    <button @click="testUpdate">更新数据</button>
+	    <button @click="testDelete">删除数据</button>
+	    <button @click="testOpenId">获取OpenId</button>
+	  </view>
+	
   </view>
 </template>
 
@@ -36,6 +45,7 @@
 import { chooseImage } from '@/utils/upload.js'; // 只选择图片，不立即上传
 import { uploadToCloud } from '@/utils/upload.js'; // 专门的上传函数
 import uniIcons from '@dcloudio/uni-ui/lib/uni-icons/uni-icons.vue';
+import { addData, getData, updateData, deleteData, getOpenId } from '@/utils/db.js';
 
 export default {
   components: { uniIcons },
@@ -47,6 +57,28 @@ export default {
     };
   },
   methods: {
+	  //测试各函数功能
+	    async testAdd() {
+	      const res = await addData('demo-image', { name: '小明', age: 20 });
+	      console.log('添加结果:', res);
+	    },
+	    async testGet() {
+	      const res = await getData('demo-image');
+	      console.log('获取结果:', res);
+	    },
+	    async testUpdate() {
+	      const res = await updateData('demo-image', { name: '小明' }, { age: 26 });
+	      console.log('更新结果:', res);
+	    },
+	    async testDelete() {
+	      const res = await deleteData('demo-image', { name: '小明' });
+	      console.log('删除结果:', res);
+	    },
+	    async testOpenId() {
+	      const res = await getOpenId();
+	      console.log('当前用户OpenId:', res.openid);
+	    },
+	  
     async handleTakePhoto() {
       try {
         this.imagePath = await chooseImage(); // 这里只取本地路径，不上传

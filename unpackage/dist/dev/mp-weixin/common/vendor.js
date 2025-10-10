@@ -7283,9 +7283,9 @@ function isConsoleWritable() {
   return isWritable;
 }
 function initRuntimeSocketService() {
-  const hosts = "192.168.56.1,10.72.54.192,192.168.248.1,192.168.150.1,127.0.0.1";
+  const hosts = "198.18.0.1,192.168.56.1,10.72.54.192,192.168.248.1,192.168.150.1,127.0.0.1";
   const port = "8090";
-  const id = "mp-weixin_Fifzqq";
+  const id = "mp-weixin_dgWT-a";
   const lazy = typeof swan !== "undefined";
   let restoreError = lazy ? () => {
   } : initOnError();
@@ -8609,7 +8609,7 @@ class S {
 function T(e2) {
   return e2 && "string" == typeof e2 ? JSON.parse(e2) : e2;
 }
-const b = true, E = "mp-weixin", A = T(define_process_env_UNI_SECURE_NETWORK_CONFIG_default), P = E, C = T('{"address":["127.0.0.1","192.168.56.1","10.72.54.192","192.168.248.1","192.168.150.1"],"servePort":7000,"debugPort":9000,"initialLaunchType":"local","skipFiles":["<node_internals>/**","D:/Application/HbuilderX/HBuilderX/plugins/unicloud/**/*.js"]}'), O = T('[{"provider":"alipay","spaceName":"zfb-demo","spaceId":"env-00jxu224gpal","spaceAppId":"2021005192687038","accessKey":"dpDDpM5HCZgIrtxG","secretKey":"9ZoyjlwhejjfPnwB"}]') || [];
+const b = true, E = "mp-weixin", A = T(define_process_env_UNI_SECURE_NETWORK_CONFIG_default), P = E, C = T('{"address":["127.0.0.1","198.18.0.1","192.168.56.1","10.72.54.192","192.168.248.1","192.168.150.1"],"servePort":7000,"debugPort":9000,"initialLaunchType":"local","skipFiles":["<node_internals>/**","D:/Application/HbuilderX/HBuilderX/plugins/unicloud/**/*.js"]}'), O = T('[{"provider":"alipay","spaceName":"zfb-demo","spaceId":"env-00jxu224gpal","spaceAppId":"2021005192687038","accessKey":"dpDDpM5HCZgIrtxG","secretKey":"9ZoyjlwhejjfPnwB"}]') || [];
 let N = "";
 try {
   N = "__UNI__608FAE1";

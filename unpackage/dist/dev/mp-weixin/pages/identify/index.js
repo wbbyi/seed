@@ -1,6 +1,7 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
 const utils_upload = require("../../utils/upload.js");
+const utils_db = require("../../utils/db.js");
 const uniIcons = () => "../../node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons.js";
 const _sfc_main = {
   components: { uniIcons },
@@ -14,6 +15,27 @@ const _sfc_main = {
     };
   },
   methods: {
+    //测试各函数功能
+    async testAdd() {
+      const res = await utils_db.addData("demo-image", { name: "小明", age: 20 });
+      common_vendor.index.__f__("log", "at pages/identify/index.vue:63", "添加结果:", res);
+    },
+    async testGet() {
+      const res = await utils_db.getData("demo-image");
+      common_vendor.index.__f__("log", "at pages/identify/index.vue:67", "获取结果:", res);
+    },
+    async testUpdate() {
+      const res = await utils_db.updateData("demo-image", { name: "小明" }, { age: 26 });
+      common_vendor.index.__f__("log", "at pages/identify/index.vue:71", "更新结果:", res);
+    },
+    async testDelete() {
+      const res = await utils_db.deleteData("demo-image", { name: "小明" });
+      common_vendor.index.__f__("log", "at pages/identify/index.vue:75", "删除结果:", res);
+    },
+    async testOpenId() {
+      const res = await utils_db.getOpenId();
+      common_vendor.index.__f__("log", "at pages/identify/index.vue:79", "当前用户OpenId:", res.openid);
+    },
     async handleTakePhoto() {
       try {
         this.imagePath = await utils_upload.chooseImage();
@@ -38,7 +60,7 @@ const _sfc_main = {
         });
       } catch (err) {
         common_vendor.index.showToast({ title: "识别失败", icon: "none" });
-        common_vendor.index.__f__("error", "at pages/identify/index.vue:77", err);
+        common_vendor.index.__f__("error", "at pages/identify/index.vue:109", err);
       } finally {
         this.loading = false;
       }
@@ -88,7 +110,13 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     k: common_vendor.o((...args) => $options.handleIdentify && $options.handleIdentify(...args))
   } : {}, {
     l: $data.loading
-  }, $data.loading ? {} : {});
+  }, $data.loading ? {} : {}, {
+    m: common_vendor.o((...args) => $options.testAdd && $options.testAdd(...args)),
+    n: common_vendor.o((...args) => $options.testGet && $options.testGet(...args)),
+    o: common_vendor.o((...args) => $options.testUpdate && $options.testUpdate(...args)),
+    p: common_vendor.o((...args) => $options.testDelete && $options.testDelete(...args)),
+    q: common_vendor.o((...args) => $options.testOpenId && $options.testOpenId(...args))
+  });
 }
 const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render]]);
 wx.createPage(MiniProgramPage);
