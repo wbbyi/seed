@@ -1,0 +1,7 @@
+{
+  "name": "saveHistory",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}
