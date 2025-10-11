@@ -23,21 +23,26 @@ export function methods() {
 	}
 
 	function selectUserHistoryByTime(timeRange : Date[], userMessages : UserHistory[]) : UserHistory[] {
-		const start : Date = timeRange[0];
-		const end : Date = timeRange[1];
-		let current : Date = new Date(start);
+		const start : Date = new Date(timeRange[0]);
+		const end : Date = new Date(timeRange[1]);
 		const dateList : Date[] = [];
 		const userMessage : UserHistory[] = [];
 		const dates : string[] = [];
+		const tempDates : Date[] = [];
+		let currentDate : Date = start;
 
 
-		if (current instanceof Date) {
-			while (current.getDate() <= new Date(end).getDate()) {
-				let tempTime : number = current.setTime(current.getTime() - 8 * 60 * 60 * 1000);
-				const date = new Date(tempTime);
-				dateList.push(date);
-				current.setDate(current.getDate() + 1);
+		if (currentDate instanceof Date && end instanceof Date) {
+			while (currentDate.getTime() <= end.getTime()) {
+				tempDates.push(new Date (currentDate));
+				currentDate.setDate(currentDate.getDate() + 1);
+				console.log("currentDate---while", currentDate);
 			}
+		}
+
+		for (let msg of tempDates) {
+			let msgNum : number = msg.setTime(msg.getTime() - 8 * 60 * 60 * 1000);
+			dateList.push(new Date(msgNum));
 		}
 
 		for (let i = 0; i < dateList.length; i++) {
@@ -46,19 +51,10 @@ export function methods() {
 			dates.push(str);
 		}
 
-		console.log("timeRange[0]:", timeRange[0]);
-		console.log("dateList:", dateList);
-		console.log("start:", start);
-		console.log("current:", current)
-		console.log("current type:", current instanceof Date)
-		console.log("current-type", typeof current)
-		console.log("dateList[0].getDate()", dateList[0].getDate())
-		console.log("dates", dates)
-
-		for (let i = 0; i < userMessages.length; i++) {
-			for (let j = 0; j < dateList.length; j++) {
-				if (dates[j] === userMessages[i].name) {
-					userMessage.push(userMessages[i]);
+		for (let i = 0; i < dates.length; i++) {
+			for (let j = 0; j < userMessages.length; j++) {
+				if (dates[i] === userMessages[j].name) {
+					userMessage.push(userMessages[j]);
 				}
 			}
 		}

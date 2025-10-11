@@ -80,12 +80,18 @@
 	}
 	
 	const selectByTime = (res: any) => {
+		let list : UserHistory[] = [];
 		if (res.length == 0){
 			history();
 		}
 		console.log(res);
-		seedHistorys.value = selectUserHistoryByTime(res, allSeedHistorys);
+		seedHistorys.value = [];
+		console.log("seedHistorys--1", seedHistorys.value);
+		list = selectUserHistoryByTime(res, allSeedHistorys);
+		seedHistorys.value = list;
 		selectNum.value = seedHistorys.value.length;
+		console.log("list", list);
+		console.log("seedHistorys", seedHistorys.value);
 	}
 	
 	const detail = (name : string) => {

@@ -12,36 +12,32 @@ function methods() {
     return seedData;
   }
   function selectUserHistoryByTime(timeRange, userMessages) {
-    const start = timeRange[0];
-    const end = timeRange[1];
-    let current = new Date(start);
+    const start = new Date(timeRange[0]);
+    const end = new Date(timeRange[1]);
     const dateList = [];
     const userMessage = [];
     const dates = [];
-    if (current instanceof Date) {
-      while (current.getDate() <= new Date(end).getDate()) {
-        let tempTime = current.setTime(current.getTime() - 8 * 60 * 60 * 1e3);
-        const date = new Date(tempTime);
-        dateList.push(date);
-        current.setDate(current.getDate() + 1);
+    const tempDates = [];
+    let currentDate = start;
+    if (currentDate instanceof Date && end instanceof Date) {
+      while (currentDate.getTime() <= end.getTime()) {
+        tempDates.push(new Date(currentDate));
+        currentDate.setDate(currentDate.getDate() + 1);
+        common_vendor.index.__f__("log", "at pages/history/historyMethods.ts:39", "currentDate---while", currentDate);
       }
+    }
+    for (let msg of tempDates) {
+      let msgNum = msg.setTime(msg.getTime() - 8 * 60 * 60 * 1e3);
+      dateList.push(new Date(msgNum));
     }
     for (let i = 0; i < dateList.length; i++) {
       let str = dateList[i].getFullYear().toString() + "-" + (dateList[i].getMonth() + 1).toString() + "-" + (dateList[i].getDate() < 10 ? "0" + dateList[i].getDate().toString() : dateList[i].getDate().toString());
       dates.push(str);
     }
-    common_vendor.index.__f__("log", "at pages/history/historyMethods.ts:49", "timeRange[0]:", timeRange[0]);
-    common_vendor.index.__f__("log", "at pages/history/historyMethods.ts:50", "dateList:", dateList);
-    common_vendor.index.__f__("log", "at pages/history/historyMethods.ts:51", "start:", start);
-    common_vendor.index.__f__("log", "at pages/history/historyMethods.ts:52", "current:", current);
-    common_vendor.index.__f__("log", "at pages/history/historyMethods.ts:53", "current type:", current instanceof Date);
-    common_vendor.index.__f__("log", "at pages/history/historyMethods.ts:54", "current-type", typeof current);
-    common_vendor.index.__f__("log", "at pages/history/historyMethods.ts:55", "dateList[0].getDate()", dateList[0].getDate());
-    common_vendor.index.__f__("log", "at pages/history/historyMethods.ts:56", "dates", dates);
-    for (let i = 0; i < userMessages.length; i++) {
-      for (let j = 0; j < dateList.length; j++) {
-        if (dates[j] === userMessages[i].name) {
-          userMessage.push(userMessages[i]);
+    for (let i = 0; i < dates.length; i++) {
+      for (let j = 0; j < userMessages.length; j++) {
+        if (dates[i] === userMessages[j].name) {
+          userMessage.push(userMessages[j]);
         }
       }
     }
