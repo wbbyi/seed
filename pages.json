@@ -1,16 +1,5 @@
 {
-	"pages": [{
-			"path": "pages/login/login",
-			"style": {
-				"navigationBarTitleText": ""
-			}
-		},
-		{
-			"path": "pages/home/home",
-			"style": {
-				"navigationBarTitleText": "首页"
-			}
-		},
+	"pages": [
 		{
 			"path": "pages/my/my",
 			"style": {
@@ -18,10 +7,40 @@
 			}
 		},
 		{
-			"path" : "pages/phoneLogin/phoneLogin",
-			"style" : 
-			{
-				"navigationBarTitleText" : ""
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/identify/identify",
+			"style": {
+				"navigationBarTitleText": "种子"
+			}
+		},
+		{
+			"path": "pages/seedManager/seedManager",
+			"style": {
+				"navigationBarTitleText": "种子"
+			}
+		},
+
+		{
+			"path": "pages/home/home",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/phoneLogin/phoneLogin",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/history/history",
+			"style": {
+				"navigationBarTitleText": "历史记录"
 			}
 		}
 
@@ -30,7 +49,6 @@
 		"color": "#000000",
 		"selectedColor": "#000000",
 		"backgroundColor": "#ffffff",
-		"custom": true,
 		"list": [{
 				"text": "首页",
 				"pagePath": "pages/home/home",

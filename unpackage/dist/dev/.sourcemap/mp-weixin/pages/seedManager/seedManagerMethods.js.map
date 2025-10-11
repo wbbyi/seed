@@ -1,0 +1,1 @@
+{"version":3,"file":"seedManagerMethods.js","sources":["pages/seedManager/seedManagerMethods.ts"],"sourcesContent":["export function methods(){\r\n\t\r\n\tfunction search(input : string) {\r\n\t\tconsole.log(input);\r\n\t}\r\n\t\r\n\treturn {search}\r\n}"],"names":[],"mappings":";;AAAO,SAAS,UAAS;AAExB,WAAS,OAAO,OAAgB;qFACnB,KAAK;AAAA,EAClB;AAEA,SAAO,EAAC,OAAM;AACf;;"}
