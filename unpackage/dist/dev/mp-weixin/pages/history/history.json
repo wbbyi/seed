@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "历史记录",
   "usingComponents": {
+    "uni-datetime-picker": "../../uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker",
     "uni-card": "../../uni_modules/uni-card/components/uni-card/uni-card"
   }
 }

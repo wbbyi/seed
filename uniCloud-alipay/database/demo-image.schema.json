@@ -1,57 +1,57 @@
 // 文档教程: https://uniapp.dcloud.net.cn/uniCloud/schema
 {
-  "bsonType": "object",
-  "required": [],
-  "permission": {
-    "read": true,
-    "create": true,
-    "update": true,
-    "delete": true
-  },
-  "properties": {
-    "_id": {
-      "description": "ID，系统自动生成"
-    },
-    "name": {
-      "title": "图片上传时间",
-      "bsonType": "timestamp",
-      "forceDefaultValue": {
-        "$env": "now"
-      }
-    },
-    "image": {
-      "title": "上传图片",
-      "bsonType": "file"
-    },
-    "resultName": {
-      "title": "识别结果名称",
-      "description": "请输入识别结果名称",
-      "bsonType": "string"
-    },
-    "resultRate": {
-      "title": "识别准确率",
-      "description": "请输入识别准确率",
-      "bsonType": "double"
-    },
-    "resultDes": {
-      "title": "识别结果描述",
-      "description": "请输入识别结果描述",
-      "bsonType": "string"
-    },
-    "seedClass": {
-      "title": "种子类别",
-      "description": "请输入类别",
-      "bsonType": "string"
-    },
-    "otherName": {
-      "title": "种子别名",
-      "description": "请输入别名",
-      "bsonType": "string"
-    },
-    "englishName": {
-      "title": "种子英文名",
-      "description": "请输入英文名",
-      "bsonType": "string"
-    }
-  }
+	"bsonType": "object",
+	"required": [],
+	"permission": {
+		"read": true,
+		"create": true,
+		"update": true,
+		"delete": true
+	},
+	"properties": {
+		"_id": {
+			"description": "ID，系统自动生成"
+		},
+		"name": {
+			"title": "图片上传时间",
+			"bsonType": "timestamp",
+			"forceDefaultValue": {
+				"$env": "now"
+			}
+		},
+		"image": {
+			"title": "上传图片",
+			"bsonType": "file"
+		},
+		"resultName": {
+			"title": "识别结果名称",
+			"description": "请输入识别结果名称",
+			"bsonType": "string"
+		},
+		"resultRate": {
+			"title": "识别准确率",
+			"description": "请输入识别准确率",
+			"bsonType": "double"
+		},
+		"resultDes": {
+			"title": "识别结果描述",
+			"description": "请输入识别结果描述",
+			"bsonType": "string"
+		},
+		"seedClass": {
+			"title": "种子类别",
+			"description": "请输入类别",
+			"bsonType": "string"
+		},
+		"otherName": {
+			"title": "种子别名",
+			"description": "请输入别名",
+			"bsonType": "string"
+		},
+		"englishName": {
+			"title": "种子英文名",
+			"description": "请输入英文名",
+			"bsonType": "string"
+		}
+	}
 }

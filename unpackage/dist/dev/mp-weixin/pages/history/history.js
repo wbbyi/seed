@@ -3,13 +3,14 @@ const common_vendor = require("../../common/vendor.js");
 const common_assets = require("../../common/assets.js");
 const pages_history_historyMethods = require("./historyMethods.js");
 if (!Array) {
-  const _component_uni_datetime_picker = common_vendor.resolveComponent("uni-datetime-picker");
+  const _easycom_uni_datetime_picker2 = common_vendor.resolveComponent("uni-datetime-picker");
   const _easycom_uni_card2 = common_vendor.resolveComponent("uni-card");
-  (_component_uni_datetime_picker + _easycom_uni_card2)();
+  (_easycom_uni_datetime_picker2 + _easycom_uni_card2)();
 }
+const _easycom_uni_datetime_picker = () => "../../uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker.js";
 const _easycom_uni_card = () => "../../uni_modules/uni-card/components/uni-card/uni-card.js";
 if (!Math) {
-  _easycom_uni_card();
+  (_easycom_uni_datetime_picker + _easycom_uni_card)();
 }
 const userName = "hello";
 const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({

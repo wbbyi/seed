@@ -23,20 +23,41 @@ export function methods() {
 	}
 
 	function selectUserHistoryByTime(timeRange : Date[], userMessages : UserHistory[]) : UserHistory[] {
-		let start = new Date(timeRange[0]);
-		let end = new Date(timeRange[1]);
-		let current : Date = start
-		const dateList : Date[] = []
-		const userMessage : UserHistory[] = []
+		const start : Date = timeRange[0];
+		const end : Date = timeRange[1];
+		let current : Date = new Date(start);
+		const dateList : Date[] = [];
+		const userMessage : UserHistory[] = [];
+		const dates : string[] = [];
 
-		while (current <= end) {
-			dateList.push(current);
-			current.setDate(current.getDate() + 1);
+
+		if (current instanceof Date) {
+			while (current.getDate() <= new Date(end).getDate()) {
+				let tempTime : number = current.setTime(current.getTime() - 8 * 60 * 60 * 1000);
+				const date = new Date(tempTime);
+				dateList.push(date);
+				current.setDate(current.getDate() + 1);
+			}
 		}
+
+		for (let i = 0; i < dateList.length; i++) {
+			let str = dateList[i].getFullYear().toString() + "-" + (dateList[i].getMonth() + 1).toString() + "-"
+				+ (dateList[i].getDate() < 10 ? ("0" + dateList[i].getDate().toString()) : dateList[i].getDate().toString());
+			dates.push(str);
+		}
+
+		console.log("timeRange[0]:", timeRange[0]);
+		console.log("dateList:", dateList);
+		console.log("start:", start);
+		console.log("current:", current)
+		console.log("current type:", current instanceof Date)
+		console.log("current-type", typeof current)
+		console.log("dateList[0].getDate()", dateList[0].getDate())
+		console.log("dates", dates)
 
 		for (let i = 0; i < userMessages.length; i++) {
 			for (let j = 0; j < dateList.length; j++) {
-				if (dateList[j].toString() == userMessages[i].name) {
+				if (dates[j] === userMessages[i].name) {
 					userMessage.push(userMessages[i]);
 				}
 			}
