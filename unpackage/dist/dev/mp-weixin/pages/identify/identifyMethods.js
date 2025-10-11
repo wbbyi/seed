@@ -3,7 +3,7 @@ const common_vendor = require("../../common/vendor.js");
 function methods() {
   function comeBack() {
     common_vendor.index.switchTab({
-      url: "/pages/my/my"
+      url: "/pages/home/home"
     });
   }
   return { comeBack };

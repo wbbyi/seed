@@ -18,17 +18,17 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     return (_ctx, _cache) => {
       var _a, _b, _c, _d, _e;
       return {
-        a: common_assets._imports_0$1,
+        a: _ctx.imageSrc || "/static/紫罗兰.jpg",
         b: common_assets._imports_0,
         c: common_vendor.t((_a = common_vendor.unref(seedMessage)) == null ? void 0 : _a.resultName),
         d: common_vendor.t((_b = common_vendor.unref(seedMessage)) == null ? void 0 : _b.englishName),
         e: common_vendor.t((_c = common_vendor.unref(seedMessage)) == null ? void 0 : _c.seedClass),
-        f: common_assets._imports_2$1,
+        f: common_assets._imports_1$1,
         g: common_vendor.t((_d = common_vendor.unref(seedMessage)) == null ? void 0 : _d.otherName),
-        h: common_assets._imports_3$1,
+        h: common_assets._imports_2$1,
         i: common_vendor.t((_e = common_vendor.unref(seedMessage)) == null ? void 0 : _e.resultDes),
-        j: common_assets._imports_4$1,
-        k: common_assets._imports_5$1,
+        j: common_assets._imports_3$1,
+        k: common_assets._imports_4$1,
         l: common_vendor.o(onBack)
       };
     };

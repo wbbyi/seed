@@ -1,1 +1,1 @@
-<view><uni-search-bar bindconfirm="{{a}}" u-i="0f5a419b-0" bind:__l="__l"></uni-search-bar></view>
+<view><uni-search-bar bindconfirm="{{a}}" u-i="13cc7a94-0" bind:__l="__l"></uni-search-bar></view>

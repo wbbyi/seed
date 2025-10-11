@@ -1,7 +1,7 @@
 <template>
 	<view class="seed-box">
 		<view class="seed-image-box">
-			<image class="seed-image" src="/static/紫罗兰.jpg" mode="widthFix"></image>
+			<image class="seed-image" :src="imageSrc || '/static/紫罗兰.jpg'" mode="widthFix"></image>
 		</view>
 		<view class="seed-name-box">
 			<view class="seed-name">

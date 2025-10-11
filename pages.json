@@ -1,6 +1,12 @@
 {
 	"pages": [
 		{
+			"path": "pages/home/home",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
 			"path": "pages/my/my",
 			"style": {
 				"navigationBarTitleText": "个人主页"
@@ -25,12 +31,6 @@
 			}
 		},
 
-		{
-			"path": "pages/home/home",
-			"style": {
-				"navigationBarTitleText": "首页"
-			}
-		},
 		{
 			"path": "pages/phoneLogin/phoneLogin",
 			"style": {
