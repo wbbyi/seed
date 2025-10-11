@@ -34,12 +34,18 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
       allSelectNum.value = seedHistorys.value.length;
     };
     const selectByTime = (res) => {
+      let list = [];
       if (res.length == 0) {
         history();
       }
-      common_vendor.index.__f__("log", "at pages/history/history.vue:86", res);
-      seedHistorys.value = selectUserHistoryByTime(res, allSeedHistorys);
+      common_vendor.index.__f__("log", "at pages/history/history.vue:87", res);
+      seedHistorys.value = [];
+      common_vendor.index.__f__("log", "at pages/history/history.vue:89", "seedHistorys--1", seedHistorys.value);
+      list = selectUserHistoryByTime(res, allSeedHistorys);
+      seedHistorys.value = list;
       selectNum.value = seedHistorys.value.length;
+      common_vendor.index.__f__("log", "at pages/history/history.vue:93", "list", list);
+      common_vendor.index.__f__("log", "at pages/history/history.vue:94", "seedHistorys", seedHistorys.value);
     };
     const detail = (name) => {
       for (let i = 0; i < allSeedHistorys.length; i++) {
