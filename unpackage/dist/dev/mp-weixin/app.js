@@ -2,23 +2,23 @@
 Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
 const common_vendor = require("./common/vendor.js");
 if (!Math) {
+  "./pages/seedManager/seedManager.js";
+  "./pages/home/home.js";
   "./pages/my/my.js";
   "./pages/login/login.js";
   "./pages/identify/identify.js";
-  "./pages/seedManager/seedManager.js";
-  "./pages/home/home.js";
   "./pages/phoneLogin/phoneLogin.js";
   "./pages/history/history.js";
 }
 const _sfc_main = {
   onLaunch: function() {
-    common_vendor.index.__f__("log", "at App.vue:12", "App Launch");
+    common_vendor.index.__f__("log", "at App.vue:14", "App Launch");
   },
   onShow: function() {
-    common_vendor.index.__f__("log", "at App.vue:15", "App Show");
+    common_vendor.index.__f__("log", "at App.vue:17", "App Show");
   },
   onHide: function() {
-    common_vendor.index.__f__("log", "at App.vue:18", "App Hide");
+    common_vendor.index.__f__("log", "at App.vue:20", "App Hide");
   }
 };
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {

@@ -78,7 +78,7 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         }),
         k: selectNum.value === 0
       }, selectNum.value === 0 ? {
-        l: common_assets._imports_1$1
+        l: common_assets._imports_1$2
       } : {
         m: common_vendor.f(seedHistorys.value, (item, index, i0) => {
           return {

@@ -7293,7 +7293,7 @@ function isConsoleWritable() {
 function initRuntimeSocketService() {
   const hosts = "100.125.69.178,192.168.184.1,192.168.237.1,127.0.0.1";
   const port = "8090";
-  const id = "mp-weixin_lQ8QKj";
+  const id = "mp-weixin_bUquLK";
   const lazy = typeof swan !== "undefined";
   let restoreError = lazy ? () => {
   } : initOnError();
@@ -12326,6 +12326,18 @@ var miniprogram_dist = {};
 const Lottie = /* @__PURE__ */ getDefaultExportFromCjs(miniprogram_dist);
 const pages = [
   {
+    path: "pages/seedManager/seedManager",
+    style: {
+      navigationBarTitleText: "种子"
+    }
+  },
+  {
+    path: "pages/home/home",
+    style: {
+      navigationBarTitleText: "首页"
+    }
+  },
+  {
     path: "pages/my/my",
     style: {
       navigationBarTitleText: "个人主页"
@@ -12341,18 +12353,6 @@ const pages = [
     path: "pages/identify/identify",
     style: {
       navigationBarTitleText: "种子"
-    }
-  },
-  {
-    path: "pages/seedManager/seedManager",
-    style: {
-      navigationBarTitleText: "种子"
-    }
-  },
-  {
-    path: "pages/home/home",
-    style: {
-      navigationBarTitleText: "首页"
     }
   },
   {

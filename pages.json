@@ -1,6 +1,18 @@
 {
 	"pages": [
 		{
+			"path": "pages/home/home",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/seedManager/seedManager",
+			"style": {
+				"navigationBarTitleText": "种子"
+			}
+		},
+		{
 			"path": "pages/my/my",
 			"style": {
 				"navigationBarTitleText": "个人主页"
@@ -18,19 +30,8 @@
 				"navigationBarTitleText": "种子"
 			}
 		},
-		{
-			"path": "pages/seedManager/seedManager",
-			"style": {
-				"navigationBarTitleText": "种子"
-			}
-		},
 
-		{
-			"path": "pages/home/home",
-			"style": {
-				"navigationBarTitleText": "首页"
-			}
-		},
+
 		{
 			"path": "pages/phoneLogin/phoneLogin",
 			"style": {
