@@ -11,7 +11,11 @@ function methods() {
       url: "/pages/history/history"
     });
   }
-  return { toHistory, toSeedManager };
+  function updateUserText(userText) {
+    common_vendor.index.setStorageSync("userText", userText);
+    return common_vendor.index.getStorageSync("userText");
+  }
+  return { toHistory, toSeedManager, updateUserText };
 }
 exports.methods = methods;
 //# sourceMappingURL=../../../.sourcemap/mp-weixin/pages/my/myMethods.js.map

@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/seedManager/seedManager",
     "pages/home/home",
+    "pages/seedManager/seedManager",
     "pages/my/my",
     "pages/login/login",
     "pages/identify/identify",

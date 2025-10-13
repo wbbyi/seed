@@ -1,12 +1,12 @@
 <template>
 	<view class="seed-box">
 		<view class="seed-image-box">
-			<image class="seed-image" :src="imageSrc || '/static/紫罗兰.jpg'" mode="widthFix"></image>
+			<image class="seed-image" :src="seedImg" mode="widthFix"></image>
 		</view>
 		<view class="seed-name-box">
 			<view class="seed-name">
 				<view class="seed-img-box">
-					<image class="seed-img" src="/static/logo.png" mode="widthFix"></image>
+					<image class="seed-img" :src="seedImg" mode="widthFix"></image>
 				</view>
 				<view id="seed-name-box">
 					<view class="seed-names">
@@ -34,7 +34,7 @@
 				<text>{{ seedMessage?.otherName || '无' }}</text>
 			</view>
 			<view class="seed-introduction-box">
-				<image class="seed-introduction-image" src="/static/introduction.png" mode="widthFix"></image>
+				<image class="seed-introduction-image" src="/static/introduction.png" mode="aspectFit"></image>
 				<text>简介概述</text>
 			</view>
 			<view class="seed-introduction">
@@ -62,6 +62,7 @@
 
 	// 正确解构所有方法
 	let { comeBack, logRawData } = methods();  // 添加logRawData的解构
+	const seedImg = ref();
 	
 	interface SeedData {
 		imageSrc?: string;
@@ -101,6 +102,11 @@
             ...parsedData,
             resultName: getSafeResultName(parsedData)
           };
+		  if (!parsedData.imageSrc || parsedData.imageSrc.trim() === ''){
+			  seedImg.value ="/static/紫罗兰.jpg";
+		  }else{
+			  seedImg.value = parsedData.imageSrc;
+		  }
           console.log('处理后的数据:', seedMessage.value);
         } catch (e) {
           console.error('解析识别数据失败:', e);

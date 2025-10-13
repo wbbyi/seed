@@ -132,3 +132,12 @@
 		width: 160rpx;
 		height: 100rpx;
 }
+.user-text.data-v-2f1ef635{
+		height: 100rpx;
+		font-size: 25rpx;
+		color: #3d3e55;
+}
+#text-identify.data-v-2f1ef635{
+		font-size: 30rpx;
+		color: #000000;
+}

@@ -11,23 +11,23 @@
 				</view>
 			</view>
 			</view> -->
-		</view>
+		<!-- </view> -->
 	</view>
 </template>
 
 <script setup lang="ts">
-	import { ref } from 'process';
-	import { methods } from './seedManagerMethods';
+	// import { ref } from 'process';
+	// import { methods } from './seedManagerMethods';
 
-	let { search }  = methods();
-	let seedMessages = [];
-	let historyNum = ref('0')
+	// let { search }  = methods();
+	// let seedMessages = [];
+	// let historyNum = ref('0')
 	
 	
 	
-	const onConfirm = (res: string) =>{
-		search(res);
-	}
+	// const onConfirm = (res: string) =>{
+	// 	search(res);
+	// }
 </script>
 
 <style scoped>

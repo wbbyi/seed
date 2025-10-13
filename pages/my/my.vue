@@ -6,13 +6,13 @@
 		<view class="user-message-box">
 			<view class="user-message">
 				<view class="user-name">
-					userName
+					种子收集者
 				</view>
-				<view class="user-uid">
-					userUID
-				</view>
-				<view class="user-nums">
-					识别次数：
+				<view class="user-text-box">
+					<textarea class="user-text" @input="contentChange">
+						<text id="text-identify">个人简介:\n</text>
+					{{ userText }}
+					</textarea>
 				</view>
 			</view>
 		</view>
@@ -79,9 +79,14 @@
 	import { ref } from 'vue';
 	import { methods } from "./myMethods"
 
-    let { toHistory } = methods();
+    let { toHistory, updateUserText } = methods();
 	let userName = ref('');
 	let userUID = ref('');
+	const userText = ref('这个人很懒什么也没说');
+	
+	const contentChange = () =>{
+		userText.value = updateUserText(userText.value);
+	}
 	
 	const onHistory = () => {
 		toHistory();
@@ -240,5 +245,16 @@
 		font-size: 30rpx;
 		width: 160rpx;
 		height: 100rpx;
+	}
+	
+	.user-text{
+		height: 100rpx;
+		font-size: 25rpx;
+		color: #3d3e55;
+	}
+	
+	#text-identify{
+		font-size: 30rpx;
+		color: #000000;
 	}
 </style>
