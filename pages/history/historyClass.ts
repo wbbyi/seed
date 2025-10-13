@@ -4,10 +4,12 @@ export class UserHistory {
 	name : string
 	resultName : string
 	resultRate : number
-	resultDes : string
+	resultDes : string = '暂无简介'; 
 	seedClass : string
 	otherName : string
 	englishName : string
+	predictions?: Array<{class_name: string, confidence: number}>;
+    allClasses?: Array<{class_name: string, confidence: number}>;
 	
 	[key: string]: any;
 	

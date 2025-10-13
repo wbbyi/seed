@@ -71,13 +71,18 @@
 	const userName = "hello";
 	const systemText = ref('我们为您记录近一年种子日记，珍藏绿意时光！');
 
-
-	const history = async () => {
-		allSeedHistorys = await getHistory();
-		seedHistorys.value = allSeedHistorys;
-		selectNum.value = seedHistorys.value.length;
-		allSelectNum.value = seedHistorys.value.length;
-	}
+	// seedmy/pages/history/history.vue
+    const history = async () => {
+      allSeedHistorys = await getHistory();
+      // 更健壮的数据处理
+      seedHistorys.value = allSeedHistorys.map(item => {
+        const historyItem = new UserHistory();
+        Object.assign(historyItem, item);
+        return historyItem;
+      });
+      selectNum.value = seedHistorys.value.length;
+      allSelectNum.value = seedHistorys.value.length;
+    }
 	
 	const selectByTime = (res: any) => {
 		let list : UserHistory[] = [];
