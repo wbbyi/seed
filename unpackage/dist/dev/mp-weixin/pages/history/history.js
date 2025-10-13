@@ -1,6 +1,7 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
 const common_assets = require("../../common/assets.js");
+const pages_history_historyClass = require("./historyClass.js");
 const pages_history_historyMethods = require("./historyMethods.js");
 if (!Array) {
   const _easycom_uni_datetime_picker2 = common_vendor.resolveComponent("uni-datetime-picker");
@@ -29,7 +30,11 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     const systemText = common_vendor.ref("我们为您记录近一年种子日记，珍藏绿意时光！");
     const history = async () => {
       allSeedHistorys = await getHistory();
-      seedHistorys.value = allSeedHistorys;
+      seedHistorys.value = allSeedHistorys.map((item) => {
+        const historyItem = new pages_history_historyClass.UserHistory();
+        Object.assign(historyItem, item);
+        return historyItem;
+      });
       selectNum.value = seedHistorys.value.length;
       allSelectNum.value = seedHistorys.value.length;
     };
@@ -38,14 +43,14 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
       if (res.length == 0) {
         history();
       }
-      common_vendor.index.__f__("log", "at pages/history/history.vue:87", res);
+      common_vendor.index.__f__("log", "at pages/history/history.vue:92", res);
       seedHistorys.value = [];
-      common_vendor.index.__f__("log", "at pages/history/history.vue:89", "seedHistorys--1", seedHistorys.value);
+      common_vendor.index.__f__("log", "at pages/history/history.vue:94", "seedHistorys--1", seedHistorys.value);
       list = selectUserHistoryByTime(res, allSeedHistorys);
       seedHistorys.value = list;
       selectNum.value = seedHistorys.value.length;
-      common_vendor.index.__f__("log", "at pages/history/history.vue:93", "list", list);
-      common_vendor.index.__f__("log", "at pages/history/history.vue:94", "seedHistorys", seedHistorys.value);
+      common_vendor.index.__f__("log", "at pages/history/history.vue:98", "list", list);
+      common_vendor.index.__f__("log", "at pages/history/history.vue:99", "seedHistorys", seedHistorys.value);
     };
     const detail = (name) => {
       for (let i = 0; i < allSeedHistorys.length; i++) {

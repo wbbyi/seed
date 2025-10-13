@@ -10,13 +10,13 @@
 				</view>
 				<view id="seed-name-box">
 					<view class="seed-names">
-						<text>{{ seedMessage?.resultName }}</text>
+						<text>{{ seedMessage?.resultName || '未知' }}</text>
 					</view>
 					<view class="seed-english">
-						<text>{{ seedMessage?.englishName }}</text>
+						<text>{{ seedMessage?.englishName || '' }}</text>
 					</view>
 					<view class="seed-class">
-						<text>{{ seedMessage?.seedClass }}</text>
+						<text>{{ seedMessage?.seedClass || '' }}</text>
 					</view>
 				</view>
 			</view>
@@ -31,14 +31,14 @@
 				<text>别名名称</text>
 			</view>
 			<view class="seed-other-name-text">
-				<text>{{ seedMessage?.otherName }}</text>
+				<text>{{ seedMessage?.otherName || '无' }}</text>
 			</view>
 			<view class="seed-introduction-box">
 				<image class="seed-introduction-image" src="/static/introduction.png" mode="widthFix"></image>
 				<text>简介概述</text>
 			</view>
 			<view class="seed-introduction">
-				<text>{{ seedMessage?.resultDes }}</text>
+				<text>{{ seedMessage?.resultDes || '暂无简介' }}</text>
 			</view>
 		</view>
 	</view>
@@ -60,27 +60,65 @@
 	import { methods } from './identifyMethods'
 	import { onLoad } from '@dcloudio/uni-app'
 
+	// 正确解构所有方法
+	let { comeBack, logRawData } = methods();  // 添加logRawData的解构
+	
+	interface SeedData {
+		imageSrc?: string;
+		predictions?: Array<{class_name: string, confidence: number}>;
+		resultName?: string;
+		allClasses?: Array<{class_name: string, confidence: number}>;
+		otherName?: string;
+		resultDes?: string;
+		englishName?: string;
+		seedClass?: string;
+	}
+	
+	let seedMessage = ref<SeedData>({});
 
-	let { comeBack } = methods();
-	let seedMessage = ref<UserHistory>();
-
+	const getSafeResultName = (data: any): string => {
+		return data?.resultName || 
+		       (data?.predictions?.[0]?.class_name) || 
+		       '未知';
+	};
 
 	const onBack = () => {
 		comeBack();
 	}
-	
-	
+
 	onLoad((options) => {
-		if (options.data) {
-			seedMessage.value = JSON.parse(decodeURIComponent(options.data))
-		}
-	})
+      if (options.data) {
+        try {
+          const parsedData = JSON.parse(decodeURIComponent(options.data));
+          console.log('接收到的原始数据:', parsedData);
+          logRawData(parsedData); // 现在可以正常调用
+      
+          parsedData.predictions = parsedData.predictions || [];
+          parsedData.allClasses = parsedData.allClasses || [];
+		  parsedData.resultDes = parsedData.resultDes || '暂无简介';
+
+          seedMessage.value = {
+            ...parsedData,
+            resultName: getSafeResultName(parsedData)
+          };
+          console.log('处理后的数据:', seedMessage.value);
+        } catch (e) {
+          console.error('解析识别数据失败:', e);
+          seedMessage.value = {
+            resultName: '未知',
+			resultDes: '暂无简介',
+			predictions: [],
+            allClasses: []
+          };
+        }
+      }
+    })
+	
 </script>
 
+
 <style scoped>
-	. {
-		margin: 0;
-	}
+	
 
 	.seed-box {
 		position: relative;
