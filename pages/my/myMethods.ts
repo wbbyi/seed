@@ -12,9 +12,8 @@ export function methods(){
 		});
 	}
 	
-	function updateUserText(userText : string) : string{
+	function updateUserText(userText : string) {
 		uni.setStorageSync("userText", userText);
-		return uni.getStorageSync("userText");
 	}
 	
 	return { toHistory, toSeedManager, updateUserText }

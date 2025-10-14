@@ -13,7 +13,6 @@ function methods() {
   }
   function updateUserText(userText) {
     common_vendor.index.setStorageSync("userText", userText);
-    return common_vendor.index.getStorageSync("userText");
   }
   return { toHistory, toSeedManager, updateUserText };
 }

@@ -133,9 +133,9 @@
 		height: 100rpx;
 }
 .user-text.data-v-2f1ef635{
-		height: 100rpx;
+		height: 80rpx;
 		font-size: 25rpx;
-		color: #3d3e55;
+		color: #4a4c68;
 }
 #text-identify.data-v-2f1ef635{
 		font-size: 30rpx;

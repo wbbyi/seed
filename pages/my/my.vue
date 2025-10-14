@@ -9,8 +9,7 @@
 					种子收集者
 				</view>
 				<view class="user-text-box">
-					<textarea class="user-text" @input="contentChange">
-						<text id="text-identify">个人简介:\n</text>
+					<textarea class="user-text" @input="contentChange" v-model="userText" style="color: #b3b3b3;">
 					{{ userText }}
 					</textarea>
 				</view>
@@ -82,10 +81,12 @@
     let { toHistory, updateUserText } = methods();
 	let userName = ref('');
 	let userUID = ref('');
-	const userText = ref('这个人很懒什么也没说');
+	let userText = ref('个人简介:')
+	// userText.value = uni.getStorageSync("userText") || "个人简介";
+	uni.setStorageSync("userText", userText);
 	
 	const contentChange = () =>{
-		userText.value = updateUserText(userText.value);
+		updateUserText(userText.value);
 	}
 	
 	const onHistory = () => {
@@ -248,9 +249,9 @@
 	}
 	
 	.user-text{
-		height: 100rpx;
+		height: 80rpx;
 		font-size: 25rpx;
-		color: #3d3e55;
+		color: #4a4c68;
 	}
 	
 	#text-identify{
